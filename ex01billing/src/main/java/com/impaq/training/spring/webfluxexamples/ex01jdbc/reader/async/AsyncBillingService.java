@@ -9,7 +9,7 @@ import java.sql.PreparedStatement;
 import org.springframework.jdbc.core.*;
 import org.springframework.stereotype.Service;
 
-import com.impaq.training.spring.webfluxexamples.ex01jdbc.BillingRecord;
+import com.impaq.training.spring.webfluxexamples.common.BillingRecord;
 
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;

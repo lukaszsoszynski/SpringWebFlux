@@ -1,11 +1,13 @@
 package com.impaq.training.spring.webfluxexamples.ex01jdbc.datagenerator;
 
-import java.util.*;
+import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.impaq.training.spring.webfluxexamples.common.RandomRecord;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

@@ -11,7 +11,7 @@ import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.impaq.training.spring.webfluxexamples.ex01jdbc.BillingRecord;
+import com.impaq.training.spring.webfluxexamples.common.BillingRecord;
 
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;

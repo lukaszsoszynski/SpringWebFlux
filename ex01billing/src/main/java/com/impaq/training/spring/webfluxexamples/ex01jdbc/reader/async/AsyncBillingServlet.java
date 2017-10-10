@@ -7,7 +7,7 @@ import javax.servlet.http.*;
 
 import org.springframework.http.HttpStatus;
 
-import com.impaq.training.spring.webfluxexamples.ex01jdbc.BillingRecord;
+import com.impaq.training.spring.webfluxexamples.common.BillingRecord;
 
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;

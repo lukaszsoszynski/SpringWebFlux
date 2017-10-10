@@ -1,15 +1,22 @@
-package com.impaq.training.spring.webfluxexamples.ex01jdbc;
+package com.impaq.training.spring.webfluxexamples.common;
 
 import java.util.Arrays;
 import java.util.Date;
 import java.util.stream.Collectors;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.*;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Document
 public class BillingRecord {
+
+    @Id
+    private String id;
 
     private String firstName;
     private String lastName;

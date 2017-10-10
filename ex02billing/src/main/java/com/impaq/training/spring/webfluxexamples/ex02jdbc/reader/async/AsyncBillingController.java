@@ -8,7 +8,7 @@ import java.time.Duration;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.impaq.training.spring.webfluxexamples.ex02jdbc.BillingRecord;
+import com.impaq.training.spring.webfluxexamples.common.BillingRecord;
 
 import io.reactivex.*;
 import lombok.RequiredArgsConstructor;

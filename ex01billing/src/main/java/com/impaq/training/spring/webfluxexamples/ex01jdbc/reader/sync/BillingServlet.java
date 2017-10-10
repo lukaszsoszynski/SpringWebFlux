@@ -10,7 +10,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.*;
 
-import com.impaq.training.spring.webfluxexamples.ex01jdbc.BillingRecord;
+import com.impaq.training.spring.webfluxexamples.common.BillingRecord;
 
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;

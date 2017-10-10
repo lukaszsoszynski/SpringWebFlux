@@ -1,18 +1,16 @@
-package com.impaq.training.spring.webfluxexamples.ex01jdbc.datagenerator;
+package com.impaq.training.spring.webfluxexamples.common;
 
 import java.util.Date;
 import java.util.Random;
 import java.util.stream.Collectors;
 
-import com.impaq.training.spring.webfluxexamples.ex01jdbc.BillingRecord;
-
-class RandomRecord extends BillingRecord {
+public class RandomRecord extends BillingRecord {
 
     private final static String ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
     private final static Random RANDOM = new Random();
 
     public RandomRecord(){
-        super(generateRandomString(50), generateRandomString(50), generateRandomString(10), generateRandomDate(), generateRandomDuration());
+        super(null, generateRandomString(50), generateRandomString(50), generateRandomString(10), generateRandomDate(), generateRandomDuration());
     }
 
     private static int generateRandomDuration() {
