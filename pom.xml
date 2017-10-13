@@ -24,7 +24,8 @@
 		<module>ex02billing</module>
         <module>ex03mongodb</module>
 		<module>common</module>
-	</modules>
+        <module>ex04mongodbasyncdriver</module>
+    </modules>
 
 	<dependencyManagement>
 		<dependencies>

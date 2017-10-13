@@ -1,6 +1,7 @@
 package com.impaq.training.spring.webfluxexamples.ex03mongodb.generator;
 
-import org.springframework.http.HttpStatus;
+import static org.springframework.http.HttpStatus.CREATED;
+
 import org.springframework.web.bind.annotation.*;
 
 import com.impaq.training.spring.webfluxexamples.common.BillingRecord;
@@ -18,7 +19,7 @@ public class GeneratorController {
     private final BillingRepository billingRepository;
 
     @GetMapping(path = "/ex03/generator/generate")
-    @ResponseStatus(HttpStatus.CREATED)
+    @ResponseStatus(CREATED)
     public Mono<BillingRecord> generateDocuments(@RequestParam("count") Integer count){
         return Flux.range(0, count)
                 .map(index -> new RandomRecord())

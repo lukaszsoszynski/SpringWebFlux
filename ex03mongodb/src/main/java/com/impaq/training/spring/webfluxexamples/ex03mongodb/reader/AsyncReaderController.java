@@ -9,10 +9,12 @@ import com.impaq.training.spring.webfluxexamples.common.BillingRecord;
 import com.impaq.training.spring.webfluxexamples.ex03mongodb.BillingRepository;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Flux;
 
 @RestController
 @RequiredArgsConstructor
+@Slf4j
 public class AsyncReaderController {
 
     private final BillingRepository billingRepository;
@@ -24,6 +26,8 @@ public class AsyncReaderController {
      */
     @GetMapping(value = "/ex03/billing", produces = {APPLICATION_JSON_VALUE, APPLICATION_STREAM_JSON_VALUE, TEXT_EVENT_STREAM_VALUE})
     public Flux<BillingRecord> findAll(){
+//        billingRepository.findAll().map(BillingRecord::toCsvString).subscribe(log::info);
+//        return Flux.empty();
         return billingRepository.findAll();
     }
 
