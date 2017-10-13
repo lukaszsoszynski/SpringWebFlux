@@ -16,6 +16,9 @@ public class BillingController {
 
     private final BillingService billingService;
 
+    /*
+    curl -i -N -H "accept: text/event-stream"  localhost:8080/ex04/billing
+     */
     @GetMapping(path = "/ex04/billing", produces = {APPLICATION_JSON_VALUE, APPLICATION_STREAM_JSON_VALUE, TEXT_EVENT_STREAM_VALUE})
     public Flowable<BillingRecord> loadBilling(){
         return Flowable.fromPublisher(billingService.findAll());
