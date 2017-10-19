@@ -1,4 +1,4 @@
-package com.impaq.training.spring.webfluxexamples.ex04mongodbasyncdriver;
+package com.impaq.training.spring.webfluxexamples.ex05mongodbreactivestreamsdriver;
 
 import static com.impaq.training.spring.webfluxexamples.common.BillingRecord.COLLECTION_NAME;
 
@@ -7,10 +7,10 @@ import org.springframework.boot.autoconfigure.mongo.MongoProperties;
 import org.springframework.stereotype.Repository;
 
 import com.impaq.training.spring.webfluxexamples.common.BillingRecord;
-import com.mongodb.rx.client.*;
+import com.mongodb.reactivestreams.client.*;
 
 import lombok.RequiredArgsConstructor;
-import rx.Observable;
+import reactor.core.publisher.Flux;
 
 @Repository
 @RequiredArgsConstructor
@@ -20,14 +20,19 @@ public class BillingRepository {
 
     private final MongoProperties mongoProperties;
 
-    public Observable<BillingRecord> findAll(){
+    public Flux<BillingRecord> findAll(){
         MongoDatabase database = mongoClient.getDatabase(mongoProperties.getDatabase());
         MongoCollection<Document> collection = database.getCollection(COLLECTION_NAME);
-        return collection.find().toObservable().map(this::convert);
+        return Flux.from(collection.find()).map(this::toBillingRecord);
     }
 
-    private BillingRecord convert(Document document) {
-        return new BillingRecord(null, document.getString("firstName"), document.getString("lastName"), document.getString("type"), document.getDate("startTime"), document.getInteger("duration"));
+    private BillingRecord toBillingRecord(Document document) {
+        return new BillingRecord(null,
+                document.getString("firstName"),
+                document.getString("lastName"),
+                document.getString("type"),
+                document.getDate("startTime"),
+                document.getInteger("duration"));
     }
 
 }

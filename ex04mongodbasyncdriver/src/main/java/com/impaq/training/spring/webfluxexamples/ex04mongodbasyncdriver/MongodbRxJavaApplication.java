@@ -11,10 +11,10 @@ import com.mongodb.rx.client.MongoClients;
 
 @SpringBootApplication
 @EnableConfigurationProperties(MongoProperties.class)
-public class MongodbRxJava {
+public class MongodbRxJavaApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(MongodbRxJava.class, args);
+        SpringApplication.run(MongodbRxJavaApplication.class, args);
     }
 
     @Bean

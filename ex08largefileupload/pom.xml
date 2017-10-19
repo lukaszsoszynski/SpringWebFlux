@@ -10,16 +10,19 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.impaq.training.spring</groupId>
-    <artifactId>common</artifactId>
-
+    <artifactId>ex07largefileupload</artifactId>
     <dependencies>
         <dependency>
-            <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-mongodb</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-annotations</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-mongodb-reactive</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.impaq.training.spring</groupId>
+            <artifactId>common</artifactId>
         </dependency>
     </dependencies>
 

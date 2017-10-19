@@ -5,27 +5,23 @@ import static org.springframework.http.HttpStatus.CREATED;
 import org.springframework.web.bind.annotation.*;
 
 import com.impaq.training.spring.webfluxexamples.common.BillingRecord;
-import com.impaq.training.spring.webfluxexamples.common.RandomRecord;
-import com.impaq.training.spring.webfluxexamples.ex03mongodb.BillingRepository;
 
 import lombok.RequiredArgsConstructor;
-import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RestController
 @RequiredArgsConstructor
-public class GeneratorController {
+public class BillingGeneratorController {
 
-    private final BillingRepository billingRepository;
+    private final BillingGeneratorService service;
 
+    /*
+    curl --request GET --url 'http://localhost:8080/ex03/generator/generate?count=150000'
+     */
     @GetMapping(path = "/ex03/generator/generate")
     @ResponseStatus(CREATED)
     public Mono<BillingRecord> generateDocuments(@RequestParam("count") Integer count){
-        return Flux.range(0, count)
-                .map(index -> new RandomRecord())
-                .cast(BillingRecord.class)
-                .flatMap(record -> billingRepository.save(record).flatMapMany(value -> Flux.just(value)))
-                .ignoreElements();
+        return service.generateBillingRecord(count);
 
     }
 }

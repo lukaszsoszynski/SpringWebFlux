@@ -10,20 +10,32 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.impaq.training.spring</groupId>
-    <artifactId>ex03mongodb</artifactId>
+    <artifactId>ex09security</artifactId>
 
     <dependencies>
         <dependency>
-            <groupId>com.impaq.training.spring</groupId>
-            <artifactId>common</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-webflux</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-mongodb-reactive</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-webflux</artifactId>
+            <groupId>com.impaq.training.spring</groupId>
+            <artifactId>common</artifactId>
         </dependency>
     </dependencies>
 
