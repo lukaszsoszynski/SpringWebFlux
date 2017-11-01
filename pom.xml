@@ -29,6 +29,7 @@
         <module>ex06springdatamongodb</module>
 		<module>ex08largefileupload</module>
 		<module>ex09security</module>
+		<module>ex10functionalendpoints</module>
 	</modules>
 
 	<dependencyManagement>
