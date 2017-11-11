@@ -1,4 +1,4 @@
-package com.impaq.training.spring.webfluxexamples.ex09security;
+package com.impaq.training.spring.webfluxexamples.ex15security;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Service;
@@ -13,6 +13,7 @@ public class WorkTimeService {
     private final WorkTimeProperties workTimeProperties;
 
     public boolean isBusinessHour(){
+        //fake implementations, return value from property file
         return workTimeProperties.getBusinessHours();
     }
 

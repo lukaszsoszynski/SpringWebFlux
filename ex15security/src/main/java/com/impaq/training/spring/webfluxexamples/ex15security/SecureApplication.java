@@ -1,5 +1,6 @@
-package com.impaq.training.spring.webfluxexamples.ex09security;
+package com.impaq.training.spring.webfluxexamples.ex15security;
 
+import static org.springframework.http.HttpMethod.GET;
 import static org.springframework.http.HttpMethod.POST;
 import static org.springframework.security.config.web.server.HttpSecurity.http;
 
@@ -9,7 +10,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.ReactiveAuthenticationManager;
 import org.springframework.security.authentication.UserDetailsRepositoryAuthenticationManager;
 import org.springframework.security.config.annotation.method.configuration.EnableReactiveMethodSecurity;
@@ -18,7 +18,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.*;
 import org.springframework.security.web.server.SecurityWebFilterChain;
 
-import com.impaq.training.spring.webfluxexamples.ex09security.WorkTimeService.WorkTimeProperties;
+import com.impaq.training.spring.webfluxexamples.ex15security.WorkTimeService.WorkTimeProperties;
 
 @SpringBootApplication
 @EnableWebFluxSecurity
@@ -26,7 +26,7 @@ import com.impaq.training.spring.webfluxexamples.ex09security.WorkTimeService.Wo
 @EnableConfigurationProperties(WorkTimeProperties.class)
 public class SecureApplication {
 
-    static final String BILLING_RESOURCE = "/ex09/billing";
+    static final String BILLING_RESOURCE = "/ex15/billing";
     private static final String ROLE_ADMIN = "ADMIN";
     private static final String ROLE_USER = "USER";
 
@@ -41,7 +41,7 @@ public class SecureApplication {
         .and()
             .authorizeExchange()
                 .pathMatchers(POST, BILLING_RESOURCE).hasRole(ROLE_ADMIN)
-                .pathMatchers(HttpMethod.GET, BILLING_RESOURCE + "/*").hasRole(ROLE_USER)
+                .pathMatchers(GET, BILLING_RESOURCE + "/*").hasRole(ROLE_USER)
                 .anyExchange().authenticated()
         .and()
                 .build();

@@ -1,4 +1,4 @@
-package com.impaq.training.spring.webfluxexamples.ex09security;
+package com.impaq.training.spring.webfluxexamples.ex15security;
 
 import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 

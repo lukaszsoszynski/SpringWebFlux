@@ -28,8 +28,8 @@
         <module>ex05mongodbreactivedriver</module>
         <module>ex06springdatamongodb</module>
 		<module>ex08largefileupload</module>
-		<module>ex09security</module>
 		<module>ex10functionalendpoints</module>
+		<module>ex15security</module>
 	</modules>
 
 	<dependencyManagement>

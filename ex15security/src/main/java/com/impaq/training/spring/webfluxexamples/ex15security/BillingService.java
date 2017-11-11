@@ -1,10 +1,10 @@
-package com.impaq.training.spring.webfluxexamples.ex09security;
+package com.impaq.training.spring.webfluxexamples.ex15security;
 
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
 import com.impaq.training.spring.webfluxexamples.common.BillingRecord;
-import com.impaq.training.spring.webfluxexamples.ex09security.model.BillingReference;
+import com.impaq.training.spring.webfluxexamples.ex15security.model.BillingReference;
 
 import lombok.RequiredArgsConstructor;
 import reactor.core.publisher.Mono;

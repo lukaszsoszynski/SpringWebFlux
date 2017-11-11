@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.impaq.training.spring</groupId>
-    <artifactId>ex09security</artifactId>
+    <artifactId>ex15security</artifactId>
 
     <dependencies>
         <dependency>

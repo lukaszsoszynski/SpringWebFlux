@@ -1,4 +1,4 @@
-package com.impaq.training.spring.webfluxexamples.ex09security.model;
+package com.impaq.training.spring.webfluxexamples.ex15security.model;
 
 import lombok.Value;
 
