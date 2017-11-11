@@ -7,17 +7,23 @@ import java.util.Collections;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.ReactiveAuthenticationManager;
 import org.springframework.security.authentication.UserDetailsRepositoryAuthenticationManager;
+import org.springframework.security.config.annotation.method.configuration.EnableReactiveMethodSecurity;
 import org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.*;
 import org.springframework.security.web.server.SecurityWebFilterChain;
 
+import com.impaq.training.spring.webfluxexamples.ex09security.WorkTimeService.WorkTimeProperties;
+
 @SpringBootApplication
 @EnableWebFluxSecurity
+@EnableReactiveMethodSecurity
+@EnableConfigurationProperties(WorkTimeProperties.class)
 public class SecureApplication {
 
     static final String BILLING_RESOURCE = "/ex09/billing";
@@ -36,7 +42,7 @@ public class SecureApplication {
             .authorizeExchange()
                 .pathMatchers(POST, BILLING_RESOURCE).hasRole(ROLE_ADMIN)
                 .pathMatchers(HttpMethod.GET, BILLING_RESOURCE + "/*").hasRole(ROLE_USER)
-                .anyExchange().denyAll()
+                .anyExchange().authenticated()
         .and()
                 .build();
     }

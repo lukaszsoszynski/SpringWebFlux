@@ -9,6 +9,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.reactive.function.server.RouterFunction;
+import org.springframework.web.server.WebExceptionHandler;
+import org.springframework.web.server.WebFilter;
 
 @SpringBootApplication
 public class FunctionalEndpointsApplication {
@@ -25,11 +27,17 @@ public class FunctionalEndpointsApplication {
                                 -H "Accept: text/plain"\
                                 -d '{"firstName":"Scott", "lastName":"Tiger", "duration":7}' \
                                  localhost:8010/ex10/billing
+
+     curl -H "correlation-id: randomstring" -i -XHEAD localhost:8010/ex10/billing/59fdfa5036ab15267da2c070
+
+     400 - error handler:
+     curl -i -XGET localhost:8010/ex10/billing/incrT
      */
     @Bean
     public RouterFunction<?> routerFunction(BillingHandler billingHandler){
         return route(GET("/ex10/billing/{id}").and(accept(APPLICATION_JSON)), billingHandler::findBilling)
-                .andRoute(POST("/ex10/billing").and(contentType(APPLICATION_JSON).and(accept(TEXT_PLAIN))), billingHandler::createBillingRecord);
+                .andRoute(POST("/ex10/billing").and(contentType(APPLICATION_JSON).and(accept(TEXT_PLAIN))), billingHandler::createBillingRecord)
+                .andRoute(HEAD("/ex10/billing/{id}"), billingHandler::checkIfExists);
     }
 
     //How to start server without spring boot?, annotation EnableWebFlux also needed
@@ -42,4 +50,13 @@ public class FunctionalEndpointsApplication {
 //        return httpServer;
 //    }
 
+    @Bean
+    public WebFilter correlationIdFilter(){
+        return new CorrelationIdWebFilter();
+    }
+
+    @Bean
+    public WebExceptionHandler statusCodeExceptionHandler(){
+        return new StatusCodeExceptionHandler();
+    }
 }

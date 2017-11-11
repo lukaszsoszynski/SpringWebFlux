@@ -55,4 +55,20 @@ public class BillingController {
     public Mono<BillingReference> createBillingRecord(@RequestBody Mono<BillingRecord> mono){
         return service.createBillingRecord(mono);
     }
+
+    /*
+    401 Without credentials
+        curl -i -XDELETE  -H "Accept: application/json" localhost:8009/ex09/billing/59fe1571dea6fb4208092ffb
+
+    403 With humble user credentials
+        curl -i -XDELETE -u michal:password -H "Accept: application/json" localhost:8009/ex09/billing/59fe1571dea6fb4208092ffb
+
+    200 during business hours otherwise 403 (see WorkTimeService)
+        curl -i -XDELETE -u lukasz:s3cret -H "Accept: application/json" localhost:8009/ex09/billing/59fe1571dea6fb4208092ffb
+
+     */
+    @DeleteMapping(path = BILLING_RESOURCE + "/{id}")
+    public Mono<Void> deleteBilling(@PathVariable("id") String id){
+        return service.delete(id);
+    }
 }

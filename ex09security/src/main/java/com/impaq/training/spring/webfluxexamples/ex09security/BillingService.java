@@ -1,5 +1,6 @@
 package com.impaq.training.spring.webfluxexamples.ex09security;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
 import com.impaq.training.spring.webfluxexamples.common.BillingRecord;
@@ -23,5 +24,10 @@ public class BillingService {
                 .elementAt(0)
                 .map(BillingRecord::getId)
                 .map(BillingReference::new);
+    }
+
+    @PreAuthorize("hasRole('ROLE_ADMIN') && @workTimeService.isBusinessHour()")
+    public Mono<Void> delete(String id) {
+        return repository.deleteById(id);
     }
 }

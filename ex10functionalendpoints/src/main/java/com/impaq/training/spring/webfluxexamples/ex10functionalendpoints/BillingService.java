@@ -22,4 +22,8 @@ public class BillingService {
                 .elementAt(0)
                 .map(BillingRecord::getId);
     }
+
+    public Mono<Boolean> exists(String id) {
+        return repository.existsById(id);
+    }
 }
