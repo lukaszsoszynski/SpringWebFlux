@@ -75,7 +75,7 @@ public class AsyncBackpresureBillingService {
             statement = connection.prepareStatement(SQL_QUERY, TYPE_FORWARD_ONLY, CONCUR_READ_ONLY);
             statement.setFetchSize(100);
             log.info("Prepared statement created: {}", statement);
-            this.resultSet = statement.executeQuery();
+            this.resultSet = statement.executeQuery();//<-- query is executed
             log.info("ResultSet created: {}", resultSet);
         }
 

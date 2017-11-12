@@ -13,10 +13,10 @@ import com.impaq.training.spring.webfluxexamples.ex01jdbc.reader.JdbcReaderConfi
 @SpringBootApplication
 @EnableTransactionManagement
 @Import({JdbcReaderConfiguration.class})
-public class Billing01Application {
+public class Jdbc01Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Billing01Application.class, args);
+		SpringApplication.run(Jdbc01Application.class, args);
 	}
 
 	@Bean

@@ -20,10 +20,10 @@
 	</properties>
 
 	<modules>
-		<module>ex01jdbc</module>
-		<module>ex02billing</module>
-        <module>ex03mongodb</module>
 		<module>common</module>
+		<module>ex01jdbc</module>
+		<module>ex02backpressure</module>
+		<module>ex03mongodb</module>
         <module>ex04mongodbasyncdriver</module>
         <module>ex05mongodbreactivedriver</module>
         <module>ex06springdatamongodb</module>

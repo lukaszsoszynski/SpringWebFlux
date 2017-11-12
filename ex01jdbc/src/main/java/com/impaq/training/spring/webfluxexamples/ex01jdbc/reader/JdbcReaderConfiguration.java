@@ -5,6 +5,7 @@ import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.fasterxml.jackson.core.JsonFactory;
 import com.impaq.training.spring.webfluxexamples.ex01jdbc.reader.async.AsyncBillingService;
 import com.impaq.training.spring.webfluxexamples.ex01jdbc.reader.async.AsyncBillingServlet;
 import com.impaq.training.spring.webfluxexamples.ex01jdbc.reader.sync.BillingService;
@@ -31,4 +32,8 @@ public class JdbcReaderConfiguration {
         return new ServletRegistrationBean(asyncBillingServlet, "/ex01/billingAsync");
     }
 
+    @Bean
+    public JsonFactory jsonFactory(){
+        return new JsonFactory();
+    }
 }
