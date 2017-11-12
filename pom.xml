@@ -20,7 +20,7 @@
 	</properties>
 
 	<modules>
-		<module>ex01billing</module>
+		<module>ex01jdbc</module>
 		<module>ex02billing</module>
         <module>ex03mongodb</module>
 		<module>common</module>

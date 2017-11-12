@@ -15,6 +15,9 @@ import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * This is actually mix of service and repository.
+ */
 @Service
 @Slf4j
 public class AsyncBillingService {
@@ -27,6 +30,7 @@ public class AsyncBillingService {
         this.beanPropertyRowMapper = new BeanPropertyRowMapper(BillingRecord.class);
     }
 
+    //semi reactive method (method use blocking IO)
     public Observable<BillingRecord> findBillingRecords(){
         log.info("Request for creating billing record observable");
         return Observable.create(this::findBillingRecords);
@@ -57,7 +61,7 @@ public class AsyncBillingService {
             connection.setAutoCommit(false);
             connection.setReadOnly(true);
             PreparedStatement preparedStatement = connection.prepareStatement(SQL_QUERY, TYPE_FORWARD_ONLY, CONCUR_READ_ONLY);
-            preparedStatement.setFetchSize(100);
+            preparedStatement.setFetchSize(100);//very important line
             log.info("Prepared statement created: {}", preparedStatement);
             return preparedStatement;
         };

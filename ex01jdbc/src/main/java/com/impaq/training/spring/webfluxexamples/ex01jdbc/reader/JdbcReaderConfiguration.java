@@ -22,13 +22,13 @@ public class JdbcReaderConfiguration {
     @Bean
     public ServletRegistrationBean servletRegistrationBean(BillingService billingService){
         BillingServlet billingServlet = new BillingServlet(billingService);
-        return new ServletRegistrationBean(billingServlet, "/billingSync");
+        return new ServletRegistrationBean(billingServlet, "/ex01/billingSync");
     }
 
     @Bean
     public ServletRegistrationBean asyncBillingServletRegistrationBean(AsyncBillingService asyncBillingService){
         AsyncBillingServlet asyncBillingServlet = new AsyncBillingServlet(asyncBillingService);
-        return new ServletRegistrationBean(asyncBillingServlet, "/billingAsync");
+        return new ServletRegistrationBean(asyncBillingServlet, "/ex01/billingAsync");
     }
 
 }

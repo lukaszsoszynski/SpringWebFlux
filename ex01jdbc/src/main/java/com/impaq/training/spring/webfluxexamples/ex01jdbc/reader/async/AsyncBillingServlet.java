@@ -21,6 +21,7 @@ public class AsyncBillingServlet extends HttpServlet {
 
     private final AsyncBillingService asyncBillingService;
 
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         log.info("Asynchronous processing of getting billing record started");

@@ -22,6 +22,9 @@ public class BillingServlet extends HttpServlet {
 
     private final BillingService billingService;
 
+    /*
+    curl -i http://localhost:8001/ex01/billingSync
+     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.addHeader(CONTENT_TYPE, TEXT_PLAIN_VALUE);
