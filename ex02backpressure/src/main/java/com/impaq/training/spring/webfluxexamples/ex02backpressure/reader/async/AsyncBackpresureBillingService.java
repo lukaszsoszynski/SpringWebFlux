@@ -1,6 +1,6 @@
-package com.impaq.training.spring.webfluxexamples.ex02jdbc.reader.async;
+package com.impaq.training.spring.webfluxexamples.ex02backpressure.reader.async;
 
-import static com.impaq.training.spring.webfluxexamples.ex02jdbc.reader.JdbcReaderConfiguration.SQL_QUERY;
+import static com.impaq.training.spring.webfluxexamples.ex02backpressure.reader.JdbcReaderConfiguration.SQL_QUERY;
 import static java.sql.ResultSet.CONCUR_READ_ONLY;
 import static java.sql.ResultSet.TYPE_FORWARD_ONLY;
 

@@ -1,4 +1,4 @@
-package com.impaq.training.spring.webfluxexamples.ex02jdbc.reader;
+package com.impaq.training.spring.webfluxexamples.ex02backpressure.reader;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.context.annotation.Configuration;
