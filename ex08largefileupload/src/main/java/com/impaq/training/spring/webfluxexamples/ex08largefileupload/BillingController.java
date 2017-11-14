@@ -1,4 +1,4 @@
-package com.impaq.training.spring.webfluxexamples.ex07largefileupload;
+package com.impaq.training.spring.webfluxexamples.ex08largefileupload;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 import static org.springframework.http.MediaType.APPLICATION_STREAM_JSON_VALUE;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import com.impaq.training.spring.webfluxexamples.common.BillingRecord;
 import com.impaq.training.spring.webfluxexamples.common.RandomRecord;
-import com.impaq.training.spring.webfluxexamples.ex07largefileupload.model.CloneRequest;
+import com.impaq.training.spring.webfluxexamples.ex08largefileupload.model.CloneRequest;
 
 import lombok.RequiredArgsConstructor;
 import reactor.core.publisher.Flux;

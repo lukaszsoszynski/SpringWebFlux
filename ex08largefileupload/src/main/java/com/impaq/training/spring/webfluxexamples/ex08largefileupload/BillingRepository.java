@@ -1,4 +1,4 @@
-package com.impaq.training.spring.webfluxexamples.ex07largefileupload;
+package com.impaq.training.spring.webfluxexamples.ex08largefileupload;
 
 import org.springframework.data.repository.reactive.ReactiveSortingRepository;
 

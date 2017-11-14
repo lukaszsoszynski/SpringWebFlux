@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.impaq.training.spring</groupId>
-    <artifactId>ex03mongodb</artifactId>
+    <artifactId>ex07springdatamongodbreactor</artifactId>
 
     <dependencies>
         <dependency>

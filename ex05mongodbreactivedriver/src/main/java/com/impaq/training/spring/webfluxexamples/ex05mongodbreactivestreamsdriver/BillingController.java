@@ -19,7 +19,7 @@ public class BillingController {
     private final BillingService billingService;
 
     /*
-    curl -i -N -H "accept: text/event-stream"  localhost:8080/ex05/billing
+    curl -i -N -H "accept: text/event-stream"  localhost:8005/ex05/billing
      */
     @GetMapping(path = "/ex05/billing", params = "slow!=true", produces = {APPLICATION_JSON_VALUE, APPLICATION_STREAM_JSON_VALUE, TEXT_EVENT_STREAM_VALUE})
     public Flux<BillingRecord> findAllBillingRecords(){
@@ -27,7 +27,7 @@ public class BillingController {
     }
 
     /*
-    curl -i -N -H "accept: application/stream+json"  "localhost:8080/ex05/billing?slow=true"
+    curl -i -N -H "accept: application/stream+json"  "localhost:8005/ex05/billing?slow=true"
      */
     @GetMapping(path = "/ex05/billing", params = "slow=true", produces = {APPLICATION_JSON_VALUE, APPLICATION_STREAM_JSON_VALUE, TEXT_EVENT_STREAM_VALUE})
     public Flux<BillingRecord> findAllBillingRecordsSlow(){

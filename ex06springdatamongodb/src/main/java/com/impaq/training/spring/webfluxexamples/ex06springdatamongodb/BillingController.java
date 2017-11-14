@@ -17,7 +17,7 @@ public class BillingController {
     private final BillingService billingService;
 
     /*
-    curl -i --request GET --url 'localhost:8080/ex06/billing' --header 'accept: application/stream+json'
+    curl -i --request GET --url 'localhost:8006/ex06/billing' --header 'accept: application/stream+json'
      */
     @GetMapping(path = "/ex06/billing", produces = {APPLICATION_JSON_VALUE, APPLICATION_STREAM_JSON_VALUE, TEXT_EVENT_STREAM_VALUE})
     public Flowable<BillingRecord> findAllRevcord(){

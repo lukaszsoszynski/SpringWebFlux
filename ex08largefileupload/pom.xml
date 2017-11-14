@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.impaq.training.spring</groupId>
-    <artifactId>ex07largefileupload</artifactId>
+    <artifactId>ex08largefileupload</artifactId>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>

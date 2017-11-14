@@ -1,4 +1,4 @@
-package com.impaq.training.spring.webfluxexamples.ex03mongodb.generator;
+package com.impaq.training.spring.webfluxexamples.ex07springdatamongodbreactor.generator;
 
 import static org.springframework.http.HttpStatus.CREATED;
 
@@ -16,9 +16,9 @@ public class BillingGeneratorController {
     private final BillingGeneratorService service;
 
     /*
-    curl --request GET --url 'http://localhost:8080/ex03/generator/generate?count=150000'
+    curl -i --request GET --url 'http://localhost:8007/ex07/generator/generate?count=150000'
      */
-    @GetMapping(path = "/ex03/generator/generate")
+    @GetMapping(path = "/ex07/generator/generate")
     @ResponseStatus(CREATED)
     public Mono<BillingRecord> generateDocuments(@RequestParam("count") Integer count){
         return service.generateBillingRecord(count);

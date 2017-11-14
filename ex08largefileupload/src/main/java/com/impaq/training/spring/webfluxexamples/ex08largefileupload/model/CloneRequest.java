@@ -1,4 +1,4 @@
-package com.impaq.training.spring.webfluxexamples.ex07largefileupload.model;
+package com.impaq.training.spring.webfluxexamples.ex08largefileupload.model;
 
 import lombok.Value;
 

@@ -1,4 +1,4 @@
-package com.impaq.training.spring.webfluxexamples.ex03mongodb;
+package com.impaq.training.spring.webfluxexamples.ex07springdatamongodbreactor;
 
 import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 

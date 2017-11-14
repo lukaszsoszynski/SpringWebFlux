@@ -1,0 +1,31 @@
+ex01jdbc
+    - jdbc template
+    - no webflux
+    - servlets
+    - direct write data to response object
+
+ex02backpressure
+    - webflux
+    - jdbc template
+        - implementation based on Observable without backpressure
+        - implementation based on Flowable with backpressure support
+
+ex04mongodbasyncdriver
+    - mongodb
+        - asyncdriver for RxJava 1
+        - rxjava-reactive-streams (RxJava 1 to ReacriveStream wrapper)
+    - webflux
+
+ex05mongodbreactivedriver
+    - mongodb
+        - driver reactivestreams (standard so it is usable with RxJava2 & Reactor)
+    - webflux
+ex06springdatamongodb
+    - spring data
+    - RxJava2
+    - webflux
+
+ex07springdatamongodbreactor
+    - mongo
+    - webflux
+    - springdata + reactor

@@ -1,4 +1,4 @@
-package com.impaq.training.spring.webfluxexamples.ex03mongodb.reader;
+package com.impaq.training.spring.webfluxexamples.ex07springdatamongodbreactor.reader;
 
 import static org.springframework.http.MediaType.*;
 
@@ -22,10 +22,12 @@ public class AsyncReaderBillingController {
 
     /*
     curl -i -N --request GET \
-                                           --url http://localhost:8080/ex03/billing \
+                                           --url http://localhost:8007/ex07/billing \
                                            --header 'accept: application/stream+json'
+
+   ./massive.sh 5 "curl -i -N --request GET --url http://localhost:8007/ex07/billing --header 'accept: application/stream+json'"
      */
-    @GetMapping(value = "/ex03/billing", produces = {APPLICATION_JSON_VALUE, APPLICATION_STREAM_JSON_VALUE, TEXT_EVENT_STREAM_VALUE})
+    @GetMapping(value = "/ex07/billing", produces = {APPLICATION_JSON_VALUE, APPLICATION_STREAM_JSON_VALUE, TEXT_EVENT_STREAM_VALUE})
     public Flux<BillingRecord> findAll(){
 //        billingRepository.findAll().map(BillingRecord::toCsvString).subscribe(log::info);
 //        return Flux.empty();
