@@ -29,3 +29,9 @@ ex07springdatamongodbreactor
     - mongo
     - webflux
     - springdata + reactor
+
+ex08largefileupload
+    - file billing.json
+    - Webflux
+    - mongodb
+    - spring data + reactor

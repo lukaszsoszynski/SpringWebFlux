@@ -23,28 +23,28 @@ import reactor.core.publisher.Mono;
 @RequiredArgsConstructor
 public class BillingController {
 
-    private static final String PATH_BILLING = "/ex07/billing";
+    private static final String PATH_BILLING = "/ex08/billing";
     private final BillingService billingService;
 
     /*
-    curl -i -XPOST -H "Content-Type: application/stream+json" -d @billing.json localhost:8007/ex07/billing
+    curl -i -XPOST -H "Content-Type: application/stream+json" -d @billing.json localhost:8008/ex08/billing
      */
-    @PostMapping(path = "/ex07/billing", consumes = APPLICATION_STREAM_JSON_VALUE)
+    @PostMapping(path = "/ex08/billing", consumes = APPLICATION_STREAM_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
     public Mono<Void> storeBillingRecords(@RequestBody Publisher<BillingRecord> billingRecordPublisher){
         return billingService.store(billingRecordPublisher);
     }
 
     /*
-    curl -i localhost:8007/ex07/billing/count
+    curl -i localhost:8008/ex08/billing/count
      */
-    @GetMapping(path = "/ex07/billing/count", produces = TEXT_PLAIN_VALUE)
+    @GetMapping(path = "/ex08/billing/count", produces = TEXT_PLAIN_VALUE)
     public Mono<String> getRecordCount(){
         return billingService.count();
     }
 
     /*
-    curl -i -XGET -H "Accept: application/stream+json" "localhost:8007/ex07/billing?from=0&limit=1000000"
+    curl -i -XGET -H "Accept: application/stream+json" "localhost:8008/ex08/billing?from=0&limit=1000000"
      */
     @GetMapping(path = PATH_BILLING, produces = APPLICATION_STREAM_JSON_VALUE)
     public Flux<BillingRecord> loadBillingRecord(@RequestParam(value = "from", required = false) Long from, @RequestParam(value = "limit", required = false) Long limit){
@@ -52,9 +52,9 @@ public class BillingController {
     }
 
     /*
-    curl -i -XPATCH -H "content-type: application/json" localhost:8007/ex07/billing/insert -d '{"url":"http://localhost:8007/ex07/billing/random"}'
+    curl -i -XPATCH -H "content-type: application/json" localhost:8008/ex08/billing/insert -d '{"url":"http://localhost:8008/ex08/billing/random"}'
      */
-    @PatchMapping(path = "/ex07/billing/insert", consumes = APPLICATION_JSON_VALUE)
+    @PatchMapping(path = "/ex08/billing/insert", consumes = APPLICATION_JSON_VALUE)
     public Mono<Void> cloneBillingRecord(@RequestBody Mono<CloneRequest> cloneRequest){
         return cloneRequest.map(CloneRequest::getUrl)
                 .map(URI::create)
@@ -62,7 +62,7 @@ public class BillingController {
     }
 
     /*
-    curl -i -H "accept: application/stream+json" localhost:8007/ex07/billing/random
+    curl -i -H "accept: application/stream+json" localhost:8008/ex08/billing/random
      */
     @GetMapping(path = PATH_BILLING + "/random", produces = APPLICATION_STREAM_JSON_VALUE)
     public Flux<BillingRecord> generateRandomBillingRecord(@RequestParam(value = "max", required = false) Integer max){
