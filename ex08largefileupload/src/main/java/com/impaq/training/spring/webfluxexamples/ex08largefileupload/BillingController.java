@@ -1,8 +1,6 @@
 package com.impaq.training.spring.webfluxexamples.ex08largefileupload;
 
-import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
-import static org.springframework.http.MediaType.APPLICATION_STREAM_JSON_VALUE;
-import static org.springframework.http.MediaType.TEXT_PLAIN_VALUE;
+import static org.springframework.http.MediaType.*;
 
 import java.net.URI;
 import java.util.Optional;
@@ -46,8 +44,14 @@ public class BillingController {
     /*
     curl -i -XGET -H "Accept: application/stream+json" "localhost:8008/ex08/billing?from=0&limit=1000000"
      */
-    @GetMapping(path = PATH_BILLING, produces = APPLICATION_STREAM_JSON_VALUE)
-    public Flux<BillingRecord> loadBillingRecord(@RequestParam(value = "from", required = false) Long from, @RequestParam(value = "limit", required = false) Long limit){
+    @GetMapping(path = PATH_BILLING, produces = {
+            APPLICATION_JSON_VALUE,
+            APPLICATION_STREAM_JSON_VALUE,
+            TEXT_EVENT_STREAM_VALUE
+    })
+    public Flux<BillingRecord> loadBillingRecord(
+            @RequestParam(value = "from", required = false) Long from,
+            @RequestParam(value = "limit", required = false) Long limit){
         return billingService.load(from, limit);
     }
 

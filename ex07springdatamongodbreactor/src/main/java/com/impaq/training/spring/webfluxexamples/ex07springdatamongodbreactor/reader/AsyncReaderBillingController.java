@@ -2,8 +2,7 @@ package com.impaq.training.spring.webfluxexamples.ex07springdatamongodbreactor.r
 
 import static org.springframework.http.MediaType.*;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.impaq.training.spring.webfluxexamples.common.BillingRecord;
 
@@ -32,6 +31,13 @@ public class AsyncReaderBillingController {
 //        billingRepository.findAll().map(BillingRecord::toCsvString).subscribe(log::info);
 //        return Flux.empty();
         return billingRepository.findAll();
+    }
+
+    @PutMapping(value = "/billing",
+            consumes = APPLICATION_JSON_VALUE,
+            produces = APPLICATION_JSON_VALUE)
+    public BillingRecord update(BillingRecord record){
+        return record;
     }
 
 }

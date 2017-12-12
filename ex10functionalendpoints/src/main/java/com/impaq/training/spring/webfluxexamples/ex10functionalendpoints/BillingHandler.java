@@ -38,6 +38,12 @@ public class BillingHandler {
     }
 
     public Mono<ServerResponse> createBillingRecord(ServerRequest serverRequest) {
+        BillingRecord billingRecord = null;
+        Mono<ServerResponse> response = ServerResponse
+                .ok()
+                .contentType(APPLICATION_JSON)
+                .body(Mono.just(billingRecord), BillingRecord.class);
+
         return serverRequest.bodyToMono(BillingRecord.class)
                 .compose(billingRecordMono -> billingService.createBillingRecord(billingRecordMono))
                 .compose(billingRecordIdMono -> ServerResponse.ok().contentType(APPLICATION_JSON).body(billingRecordIdMono, String.class));

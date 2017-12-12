@@ -34,10 +34,16 @@ public class FunctionalEndpointsApplication {
      curl -i -XGET localhost:8010/ex10/billing/incrT
      */
     @Bean
-    public RouterFunction<?> routerFunction(BillingHandler billingHandler){
-        return route(GET("/ex10/billing/{id}").and(accept(APPLICATION_JSON)), billingHandler::findBilling)
-                .andRoute(POST("/ex10/billing").and(contentType(APPLICATION_JSON).and(accept(TEXT_PLAIN))), billingHandler::createBillingRecord)
-                .andRoute(HEAD("/ex10/billing/{id}"), billingHandler::checkIfExists);
+    public RouterFunction<?> routerFunction(BillingHandler h){
+        return route(GET("/ex10/billing/{id}")
+                    .and(accept(APPLICATION_JSON)),
+                        h::findBilling)
+                .andRoute(POST("/ex10/billing")
+                    .and(contentType(APPLICATION_JSON)
+                    .and(accept(TEXT_PLAIN))),
+                        h::createBillingRecord)
+                .andRoute(HEAD("/ex10/billing/{id}"),
+                        h::checkIfExists);
     }
 
     //How to start server without spring boot?, annotation EnableWebFlux also needed
